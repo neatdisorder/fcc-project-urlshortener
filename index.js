@@ -55,7 +55,7 @@ app.post("/api/shorturl", async (req, res) => {
   await mongoose
     .connect(mongoUrl)
     .then(async () => {
-      const urlRegEx = "^(http)(s)*://(www.)*[0-9a-zA-Z]+(.com)*(.[a-zA-Z]+)*$";
+      const urlRegEx = "^(http)(s)*://(www.)*[0-9a-zA-Z]+(.com)*(.[a-zA-Z]+)*";
 
       if (req.body.url.match(urlRegEx)) {
         const totalEntries = await Url.estimatedDocumentCount();
