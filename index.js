@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -40,7 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //
 
 app.get("/", function (req, res) {
-  res.sendFile(process.cwd() + "/views/index.html");
+  res.sendFile(path.join(process.cwd(), "/views/index.html"));
 });
 
 // Your first API endpoint
