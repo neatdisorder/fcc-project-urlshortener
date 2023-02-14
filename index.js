@@ -79,7 +79,7 @@ app.get("/api/shorturl/:urlNumber", async (req, res) => {
   await mongoose
     .connect(mongoUrl)
     .then(async () => {
-      const urlObject = await Url.findOne({ number: req.params.urlNumber });
+      const urlObject = await Url.findOne({ short_url: req.params.urlNumber });
       console.log(urlObject);
       res.redirect(urlObject.original_url);
     })
