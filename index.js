@@ -64,7 +64,6 @@ app.post("/api/shorturl", async (req, res) => {
           short_url: totalEntries + 1,
         });
         await newUrl.save();
-        res.setHeader("Access-Control-Allow-Origin", "*");
         res.json({ original_url: req.body.url, short_url: totalEntries + 1 });
       } else {
         res.json({ error: "Invalid URL" });
